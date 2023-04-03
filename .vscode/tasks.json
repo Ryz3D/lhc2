@@ -1,0 +1,78 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "build LHC",
+            "command": "g++",
+            "args": [
+                "-g",
+                "-o",
+                "lhc_debug.exe",
+                "-I",
+                "include",
+                "src\\*.cpp",
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        },
+        {
+            "type": "cppbuild",
+            "label": "build release LHC",
+            "command": "g++",
+            "args": [
+                "-O3",
+                "-o",
+                "lhc.exe",
+                "-I",
+                "include",
+                "src\\*.cpp",
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        },
+        {
+            "type": "cppbuild",
+            "label": "build file",
+            "command": "g++",
+            "args": [
+                "-g",
+                "-o",
+                "bin\\${fileBasenameNoExtension}.exe",
+                "${relativeFile}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "run with LHC (.c)",
+            "command": "lhc",
+            "args": [
+                "${relativeFile}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "group": "build"
+        }
+    ]
+}

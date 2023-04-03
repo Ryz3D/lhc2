@@ -1,0 +1,34 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "debug LHC",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "preLaunchTask": "build LHC",
+            "program": "${workspaceFolder}\\lhc_debug.exe",
+            "args": [
+                "csrc/test.c",
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "debug file",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "preLaunchTask": "build file",
+            "program": "bin\\${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "console": "integratedTerminal"
+        }
+    ]
+}
